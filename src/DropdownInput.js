@@ -58,7 +58,8 @@ var DropdownInput = React.createClass({
     // the rest are to make eslint happy
     id: React.PropTypes.string,
     className: React.PropTypes.string,
-    bsSize: React.PropTypes.string
+    bsSize: React.PropTypes.string,
+    noHighlight: React.PropTypes.bool
   },
 
   getInitialState: function () {
@@ -144,7 +145,7 @@ var DropdownInput = React.createClass({
         part2 = item.slice(start, end),
         part3 = item.slice(end);
     var classes = cx({active: this.state.activeIndex===index, disabled: disabled===true});
-    if (disabled) {
+    if (disabled || this.props.noHighlight) {
       // don't highlight parts of disabled items, eg. the maxText
       part1 = item;
       part2 = null;
