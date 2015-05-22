@@ -182,6 +182,16 @@ var DropdownInput = React.createClass({
     this.sendChange({ value: e.target.value });
   },
 
+  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+    if (nextProps.value && nextProps.value !== this.state.value) {
+      // the user changed the input text
+      this.setState({ value: nextProps.value, activeIndex: -1 });
+      this.setDropdownState(true);
+      // fire the supplied onChange event.
+      this.sendChange({ value: nextProps.value });
+    }
+  },
+
   handleKeyDown: function handleKeyDown(e) {
     // catch arrow keys and the Enter key
     var filteredOptions = this.filteredOptions();
