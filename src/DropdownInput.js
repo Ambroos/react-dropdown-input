@@ -172,9 +172,10 @@ var DropdownInput = React.createClass({
   },
 
   componentWillReceiveProps: function(nextProps) {
-    if (nextProps.value && nextProps.value !== this.state.value) {// the user changed the input text
+    if (nextProps.value && nextProps.value !== this.state.value) {// Input changed by prop
       this.setState({value: nextProps.value, activeIndex: -1});
-      this.setDropdownState(true);
+      this.setDropdownState(false);
+      // no dropdown for automatic changes
       // fire the supplied onChange event.
       this.sendChange({value: nextProps.value});
     }
