@@ -214,6 +214,7 @@ var DropdownInput = React.createClass({
         this.sendSelect({value: newName, index: newIndex});
         this.sendChange({value: newName});
         this.setState({value: newName, activeIndex: -1});
+        this.setDropdownState(false);
         break;
 
     }
