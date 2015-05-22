@@ -176,8 +176,6 @@ var DropdownInput = React.createClass({
       this.setState({value: nextProps.value, activeIndex: -1});
       this.setDropdownState(false);
       // no dropdown for automatic changes
-      // fire the supplied onChange event.
-      this.sendChange({value: nextProps.value});
     }
   },
 
