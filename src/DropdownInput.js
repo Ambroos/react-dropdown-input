@@ -59,12 +59,13 @@ var DropdownInput = React.createClass({
     id: React.PropTypes.string,
     className: React.PropTypes.string,
     bsSize: React.PropTypes.string,
-    noHighlight: React.PropTypes.bool
+    noHighlight: React.PropTypes.bool,
+    value: React.PropTypes.string
   },
 
   getInitialState: function () {
     return {
-      value: this.props.defaultValue || '',
+      value: this.props.defaultValue || this.props.value || '',
       activeIndex: -1
     };
   },
